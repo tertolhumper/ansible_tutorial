@@ -16,6 +16,7 @@ eval $(ssh-agent) #to check the ssh in background
 
 ssh-add #it will asked for passphrase
 ```
+
 #2 Git
 ```
 git config --global user.name "tertolhumper"
@@ -27,6 +28,7 @@ sudo cat /root/.github_token
 git remote set-url origin https://tertolhumper:github_tokengithub.com/tertolhumper/ansible_tutorial.git
 git push origin main
 ```
+
 #3. Ansible 
 ```
 sudo apt install ansible
@@ -51,8 +53,11 @@ private_key_file = ~/.ssh/ansible
 interpreter_python = auto_silent
 EOF
 ```
-
 check ping of ansible 
 ```
-ansible -i inventory.ini all -m ping
+ansible all -m ping
+```
+list all hosts in ansible
+```
+ansible all --lists-hosts
 ```
