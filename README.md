@@ -61,7 +61,8 @@ list all hosts in ansible
 ```
 ansible all --list-hosts
 ```
-gather info on all ansible
+gather info on ansible
 ```
-ansible all -m gather_facts
+ansible all -m gather_facts # on all
+ansible all -m gather_facts --limit 192.168.100.123 #specific server
 ```
