@@ -68,15 +68,15 @@ ansible all -m gather_facts --limit arch #specific server
 ```
 
 #4. Ansible adhoc commands with elevated privileges
-updating arch
+update arch
 ```
 ansible arch -m pacman -a "update_cache=true" --become --ask-become-pass
 ```
-updating rhel
+update rhel
 ```
 ansible rhel -m dnf -a "update_cache=true" --become --ask-become-pass 
 ```
-updating if all servers debian base 
+update all servers if within the same debian family 
 ```
 ansible all -m apt -a "update_cache=true" --become --ask-become-pass
 ````
