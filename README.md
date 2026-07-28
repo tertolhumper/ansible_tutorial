@@ -80,4 +80,8 @@ update all servers if within the same debian family
 ```
 ansible all -m apt -a "update_cache=true" --become --ask-become-pass
 ````
+upgrade all packages in rhel
+```
+ansible rhel -m dnf -a "name='*' state=latest" --become --ask-become-pass
+```
 Note: Be cautious on the commands as not all servers have the same distro family.
