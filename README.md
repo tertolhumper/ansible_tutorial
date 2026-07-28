@@ -61,3 +61,7 @@ list all hosts in ansible
 ```
 ansible all --list-hosts
 ```
+gather info on all ansible
+```
+ansible all -m gather_facts
+```
