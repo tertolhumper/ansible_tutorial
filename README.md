@@ -64,5 +64,5 @@ ansible all --list-hosts
 gather info on ansible
 ```
 ansible all -m gather_facts # on all
-ansible all -m gather_facts --limit 192.168.100.123 #specific server
+ansible all -m gather_facts --limit arch #specific server
 ```
