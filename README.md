@@ -1,8 +1,9 @@
 # Ansible Tutorial
 
 #1. SSH
+```
 sudo apt install openssh-server
-
+```
 #SSH Keys
 ```
 ssh-keygen -t ed25519 -C "admin default"
@@ -30,7 +31,7 @@ git push origin main
 ```
 sudo apt install ansible
 ```
-# create an inventory
+## create an inventory
 ```
 cat > ~/ansible_tutorial/inventory.ini << 'EOF'
 [arch]
@@ -44,7 +45,7 @@ ansible_ssh_private_key_file=~/.ssh/ansible
 ansible_python_interpreter=auto_silent
 EOF
 ```
-# check ping of ansible 
+## check ping of ansible 
 ```
 ansible -i inventory.ini all -m ping
 ```
