@@ -31,7 +31,7 @@ git push origin main
 ```
 sudo apt install ansible
 ```
-## create an inventory
+create an inventory
 ```
 cat > ~/ansible_tutorial/inventory.ini << 'EOF'
 [arch]
@@ -39,13 +39,20 @@ arch_vm ansible_host=192.168.100.123 ansible_port=7001 ansible_user=tertol
 
 [rhel]
 rhel_vm ansible_host=192.168.100.4 ansible_port=7001 ansible_user=tertol
-
-[all:vars]
-ansible_ssh_private_key_file=~/.ssh/ansible
-ansible_python_interpreter=auto_silent
 EOF
 ```
-## check ping of ansible 
+create ansible cfg
+```
+cat > ~/ansible_tutorial/ansible.cfg << 'EOF'
+[defaults]
+inventory = inventory.ini
+remote_user = tertol
+private_key_file = ~/.ssh/ansible
+interpreter_python = auto_silent
+EOF
+```
+
+check ping of ansible 
 ```
 ansible -i inventory.ini all -m ping
 ```
