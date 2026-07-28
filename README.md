@@ -74,7 +74,7 @@ ansible arch -m pacman -a "update_cache=true" --become --ask-become-pass
 ```
 updating rhel
 ```
-ansible arch -m dnf -a "update_cache=true" --become --ask-become-pass 
+ansible rhel -m dnf -a "update_cache=true" --become --ask-become-pass 
 ```
 updating if all servers debian base 
 ```
