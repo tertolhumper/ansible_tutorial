@@ -59,5 +59,5 @@ ansible all -m ping
 ```
 list all hosts in ansible
 ```
-ansible all --lists-hosts
+ansible all --list-hosts
 ```
