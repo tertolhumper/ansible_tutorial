@@ -192,3 +192,9 @@ Commands
 ansible-playbook --ask-become-pass user_management.yml
 ```
 
+Note: sysadmin account uses SSH key authentication only, no password login.
+
+Test access with:
+```
+ssh -i ~/.ssh/id_ed25519 -p 7001 sysadmin@192.168.100.4
+```
