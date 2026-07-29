@@ -98,7 +98,7 @@ Commands
 ```
 ansible-playbook --ask-become-pass install_nginx.yml #install
 ansible-playbook --ask-become-pass remove_nginx.yml 
-
+```
 Ansible package installation
 ```
 cat > ~/ansible_tutorial/install_nginx.yml << 'EOF'
@@ -138,6 +138,7 @@ Note on RHEL firewall
 ```
 sudo firewall-cmd --add-service=http --permanent && sudo firewall-cmd --reload
 ```
+
 Ansible package removal
 ```
 cat > ~/ansible_tutorial/remove_nginx.yml << 'EOF'
