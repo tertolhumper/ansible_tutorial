@@ -29,6 +29,7 @@ sudo cat /root/.github_token
 git remote set-url origin https://tertolhumper:github_token@github.com/tertolhumper/ansible_tutorial.git
 git push origin main
 ```
+Note: The git remote URL above uses a PAT (Personal Access Token) instead of a password as GitHub dropped password auth. If running as root, retrieve the token with `sudo cat /root/.github_token`. If running as a regular user, store your token somewhere accessible like `~/.github_token` and use `cat ~/.github_token` instead.
 
 #3. Ansible 
 ```
