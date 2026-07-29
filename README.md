@@ -7,7 +7,7 @@ sudo apt install openssh-server
 #SSH Keys
 ```
 ssh-keygen -t ed25519 -C "admin default"
-cat ~/.ssh/id_ed25518.pub | ssh tertol@192.168.100.129 "mkdir -p ~/.ssh && cat >> ~/.ssh/authorized_keys"
+cat ~/.ssh/id_ed25519.pub | ssh tertol@192.168.100.129 "mkdir -p ~/.ssh && cat >> ~/.ssh/authorized_keys"
 ssh-copy-id ~/.ssh/id_ed25519.pub 192.168.100.129
 ```
 #Entering ssh passphrase once unless terminal closed
@@ -26,7 +26,7 @@ git config --global user.name "tertolhumper"
 git config --global user.email "tertolhumper@protonmail.com"
 
 sudo cat /root/.github_token
-git remote set-url origin https://tertolhumper:github_tokengithub.com/tertolhumper/ansible_tutorial.git
+git remote set-url origin https://tertolhumper:github_token@github.com/tertolhumper/ansible_tutorial.git
 git push origin main
 ```
 
