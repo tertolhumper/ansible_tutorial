@@ -112,6 +112,14 @@ cat > ~/ansible_tutorial/install_nginx.yml << 'EOF'
         state: latest
       when: ansible_os_family == "RedHat"
 
+    - name: Allow http through firewalld (RHEL)
+      ansible.posix.firewalld:
+        service: http
+        permanent: true
+        state: enabled
+        immediate: true
+      when: ansible_os_family == "RedHat"
+
     - name: Enable and start nginx
       ansible.builtin.service:
         name: nginx
@@ -119,7 +127,7 @@ cat > ~/ansible_tutorial/install_nginx.yml << 'EOF'
         enabled: true
 EOF
 ```
-Note on RHEL firewall
+Note on RHEL firewall 
 ```
 sudo firewall-cmd --add-service=http --permanent && sudo firewall-cmd --reload
 ```
