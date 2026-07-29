@@ -175,3 +175,10 @@ cat > ~/ansible_tutorial/remove_nginx.yml << 'EOF'
       when: ansible_os_family == "RedHat"
 EOF
 ```
+#6. Rhel 10 Hardening
+See the code rhel_hardening.yml
+
+Commands
+```
+ansible-playbook --ask-become-pass rhel_hardening.yml
+```
