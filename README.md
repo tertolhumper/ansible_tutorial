@@ -19,10 +19,11 @@ ssh-add #it will asked for passphrase
 
 #2 Git
 ```
+create a repo on your github ansible_tutorial
+git clone it 
+
 git config --global user.name "tertolhumper"
 git config --global user.email "tertolhumper@protonmail.com"
-
-git clone #github 
 
 sudo cat /root/.github_token
 git remote set-url origin https://tertolhumper:github_tokengithub.com/tertolhumper/ansible_tutorial.git
