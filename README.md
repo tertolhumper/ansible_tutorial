@@ -196,5 +196,6 @@ Note: sysadmin account uses SSH key authentication only, no password login.
 
 Test access with:
 ```
-ssh -i ~/.ssh/id_ed25519 -p 7001 sysadmin@192.168.100.4
+ssh -i ~/.ssh/id_ed25519 -p 7001 sysadmin@rhel
+ssh -i ~/.ssh/id_ef25519 -p 7001 sysadmin@arch
 ```
