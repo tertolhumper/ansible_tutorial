@@ -176,6 +176,7 @@ cat > ~/ansible_tutorial/remove_nginx.yml << 'EOF'
 EOF
 ```
 #6. Rhel 10 Hardening
+
 See the code rhel_hardening.yml
 
 Commands
