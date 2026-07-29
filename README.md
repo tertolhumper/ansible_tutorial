@@ -91,3 +91,35 @@ install package in arch
 ansible arch -m pacman -a name=vim --become --ask-become-pass
 ```
 Note: Be cautious on the commands as not all servers have the same distro family.
+
+#5. Ansible Playbook
+```
+cat > ~/ansible_tutorial/install_nginx.yml << 'EOF'
+---
+- name: Install nginx
+  hosts: all
+  become: true
+  tasks:
+    - name: Install nginx (Arch)
+      community.general.pacman:
+        name: nginx
+        state: latest
+      when: ansible_os_family == "Archlinux"
+
+    - name: Install nginx (RHEL)
+      ansible.builtin.dnf:
+        name: nginx
+        state: latest
+      when: ansible_os_family == "RedHat"
+
+    - name: Enable and start nginx
+      ansible.builtin.service:
+        name: nginx
+        state: started
+        enabled: true
+EOF
+```
+Note on RHEL firewall
+```
+sudo firewall-cmd --add-service=http --permanent && sudo firewall-cmd --reload
+```
