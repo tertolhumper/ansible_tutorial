@@ -183,3 +183,12 @@ Commands
 ```
 ansible-playbook --ask-become-pass rhel_hardening.yml
 ```
+#7. User Management
+
+See the code user_management.yml
+
+Commands
+```
+ansible-playbook --ask-become-pass user_management.yml
+```
+
