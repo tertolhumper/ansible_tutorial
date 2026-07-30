@@ -210,3 +210,13 @@ Command
 ansible-playbook --ask-become-pass config_management.yml
 ```
 
+#9. Patch Management with Reboot Handling
+
+See the code patch_management.yml
+
+Command
+```
+ansible-playbook --ask-become-pass patch_management.yml
+```
+
+Note: Servers will automatically reboot if a kernel update is detected. Reboot timeout is set to 300 seconds.
