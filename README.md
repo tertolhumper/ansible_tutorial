@@ -70,7 +70,7 @@ ansible all -m gather_facts --limit arch #specific server
 ```
 
 #4. Ansible adhoc commands with elevated privileges
-update arch
+update, upgrade and install
 ```
 ansible arch -m pacman -a "update_cache=true" --become --ask-become-pass
 ```
