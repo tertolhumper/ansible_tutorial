@@ -273,11 +273,15 @@ Note: Requires a public IP and a domain name pointing to it. For testing, use Du
 Setup:
 
 a. Create a free subdomain at duckdns.org pointing to your public IP (curl ifconfig.me)
+
 b. Install certbot and certbot-dns-duckdns on the target server
+
 c. Create /etc/letsencrypt/duckdns.ini with your DuckDNS token:
    dns_duckdns_token = YOUR_TOKEN_HERE
 d. chmod 600 /etc/letsencrypt/duckdns.ini
+
 e. Run certbot manually first to issue the certificate:
+
 ```  
  sudo /usr/local/bin/certbot certonly \
   --authenticator dns-duckdns \
