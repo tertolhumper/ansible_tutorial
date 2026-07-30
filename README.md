@@ -117,45 +117,12 @@ ansible arch -m pacman -a name=vim --become --ask-become-pass
 Note: Be cautious on the commands as not all servers have the same distro family.
 
 #5. Ansible Playbook
-Commands
-```
-ansible-playbook --ask-become-pass install_nginx.yml #install
-ansible-playbook --ask-become-pass remove_nginx.yml 
-```
+
+See the code install_nginx.yml and remove_nginx.yml
+
 Ansible package installation
 ```
-cat > ~/ansible_tutorial/install_nginx.yml << 'EOF'
----
-- name: Install nginx
-  hosts: all
-  become: true
-  tasks:
-    - name: Install nginx (Arch)
-      community.general.pacman:
-        name: nginx
-        state: latest
-      when: ansible_os_family == "Archlinux"
-
-    - name: Install nginx (RHEL)
-      ansible.builtin.dnf:
-        name: nginx
-        state: latest
-      when: ansible_os_family == "RedHat"
-
-    - name: Allow http through firewalld (RHEL)
-      ansible.posix.firewalld:
-        service: http
-        permanent: true
-        state: enabled
-        immediate: true
-      when: ansible_os_family == "RedHat"
-
-    - name: Enable and start nginx
-      ansible.builtin.service:
-        name: nginx
-        state: started
-        enabled: true
-EOF
+ansible-playbook --ask-become-pass install_nginx.yml
 ```
 Note on RHEL firewall 
 ```
@@ -164,39 +131,8 @@ sudo firewall-cmd --add-service=http --permanent && sudo firewall-cmd --reload
 
 Ansible package removal
 ```
-cat > ~/ansible_tutorial/remove_nginx.yml << 'EOF'
----
-- name: Remove nginx
-  hosts: all
-  become: true
-  tasks:
-    - name: Stop and disable nginx
-      ansible.builtin.service:
-        name: nginx
-        state: stopped
-        enabled: false
-      ignore_errors: true
+ansible-playbook --ask-become-pass remove_nginx.yml 
 
-    - name: Remove nginx (Arch)
-      community.general.pacman:
-        name: nginx
-        state: absent
-      when: ansible_os_family == "Archlinux"
-
-    - name: Remove nginx (RHEL)
-      ansible.builtin.dnf:
-        name: nginx
-        state: absent
-      when: ansible_os_family == "RedHat"
-
-    - name: Remove firewalld http rule (RHEL)
-      ansible.posix.firewalld:
-        service: http
-        permanent: true
-        state: disabled
-        immediate: true
-      when: ansible_os_family == "RedHat"
-EOF
 ```
 #6. Rhel 10 Hardening
 
