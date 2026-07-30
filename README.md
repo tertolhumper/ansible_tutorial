@@ -278,6 +278,7 @@ b. Install certbot and certbot-dns-duckdns on the target server
 
 c. Create /etc/letsencrypt/duckdns.ini with your DuckDNS token:
    dns_duckdns_token = YOUR_TOKEN_HERE
+
 d. chmod 600 /etc/letsencrypt/duckdns.ini
 
 e. Run certbot manually first to issue the certificate:
