@@ -179,7 +179,7 @@ EOF
 
 See the code rhel_hardening.yml
 
-Commands
+Command
 ```
 ansible-playbook --ask-become-pass rhel_hardening.yml
 ```
@@ -187,7 +187,7 @@ ansible-playbook --ask-become-pass rhel_hardening.yml
 
 See the code user_management.yml
 
-Commands
+Command
 ```
 ansible-playbook --ask-become-pass user_management.yml
 ```
@@ -199,3 +199,14 @@ Test access with:
 ssh -i ~/.ssh/id_ed25519 -p 7001 sysadmin@rhel
 ssh -i ~/.ssh/id_ed25519 -p 7001 sysadmin@arch
 ```
+#8. Configuration management via templates
+
+See the code config_management.yml and templates/sshd_config.j2
+
+Note: ssh_port is defined per host in inventory.ini. Change to a non-standard port to reduce brute force exposure. Port 22 is a security risk in production.
+
+Commands
+```
+ansible-playbook --ask-become-pass config_management.yml
+```
+
