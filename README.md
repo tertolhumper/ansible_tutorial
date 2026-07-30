@@ -205,7 +205,7 @@ See the code config_management.yml and templates/sshd_config.j2
 
 Note: ssh_port is defined per host in inventory.ini. Change to a non-standard port to reduce brute force exposure. Port 22 is a security risk in production.
 
-Commands
+Command
 ```
 ansible-playbook --ask-become-pass config_management.yml
 ```
