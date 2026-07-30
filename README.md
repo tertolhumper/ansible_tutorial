@@ -14,13 +14,14 @@ Arch
 ```
 sudo pacman -S openssh
 ```
-#SSH Keys
+
+SSH Keys
 ```
 ssh-keygen -t ed25519 -C "admin default"
 cat ~/.ssh/id_ed25519.pub | ssh tertol@192.168.100.129 "mkdir -p ~/.ssh && cat >> ~/.ssh/authorized_keys"
 ssh-copy-id ~/.ssh/id_ed25519.pub 192.168.100.129
 ```
-#Entering ssh passphrase once unless terminal closed
+Entering ssh passphrase once unless terminal closed
 ```
 eval $(ssh-agent) #to check the ssh in background
 
