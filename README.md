@@ -276,7 +276,8 @@ Setup:
    dns_duckdns_token = YOUR_TOKEN_HERE
 4. chmod 600 /etc/letsencrypt/duckdns.ini
 5. Run certbot manually first to issue the certificate:
-   sudo /usr/local/bin/certbot certonly \
+```  
+ sudo /usr/local/bin/certbot certonly \
   --authenticator dns-duckdns \
   --dns-duckdns-credentials /etc/letsencrypt/duckdns.ini \
   --dns-duckdns-propagation-seconds 60 \
@@ -284,4 +285,5 @@ Setup:
   --agree-tos \
   --email YOUR_EMAIL \
   --non-interactive
+```
 6. Then run the playbook for automated renewal
