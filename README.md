@@ -1,8 +1,18 @@
 # Ansible Tutorial
 
 #1. SSH
+
+Debian/Ubuntu
 ```
 sudo apt install openssh-server
+```
+RHEL/Fedora
+```
+sudo dnf install openssh-server
+```
+Arch
+```
+sudo pacman -S openssh
 ```
 #SSH Keys
 ```
@@ -32,9 +42,21 @@ git push origin main
 Note: The git remote URL above uses a PAT (Personal Access Token) instead of a password as GitHub dropped password auth. If running as root, retrieve the token with `sudo cat /root/.github_token`. If running as a regular user, store your token somewhere accessible like `~/.github_token` and use `cat ~/.github_token` instead.
 
 #3. Ansible 
+
+Debian/Ubuntu
 ```
 sudo apt install ansible
 ```
+
+RHEL/Fedora
+```
+sudo dnf install ansible
+```
+Arch
+```
+sudo pacman -S ansible
+```
+
 create an inventory
 ```
 cat > ~/ansible_tutorial/inventory.ini << 'EOF'
