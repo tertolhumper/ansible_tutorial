@@ -232,3 +232,25 @@ Command
 ansible-playbook --ask-become-pass compliance_report.yml
 ```
 
+#11. Application Deployment with Rollback
+
+See the code app_deployment.yml
+
+Uses symlink pattern: /opt/releases/<version> with /opt/current pointing to active release.
+
+Rollback automatically repoints symlink to previous release on failure.
+
+Keeps last 3 releases, cleans up older ones.
+
+Commands
+```
+ansible-playbook --ask-become-pass app_deployment.yml
+ansible-playbook --ask-become-pass app_deployment.yml -e "app_version=2.0.0"
+```
+
+Testing rollback (simulate failure):
+```
+ansible-playbook --ask-become-pass app_deployment_test.yml
+```
+
+Note: app_deployment_test.yml uses /bin/false to simulate a failed deployment and trigger the rescue/rollback block.
