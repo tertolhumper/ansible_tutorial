@@ -28,7 +28,7 @@ eval $(ssh-agent) #to check the ssh in background
 ssh-add #it will asked for passphrase
 ```
 
-#2 Git
+#2. Git
 ```
 create a repo on your github ansible_tutorial
 git clone it 
