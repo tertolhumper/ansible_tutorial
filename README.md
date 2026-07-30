@@ -254,3 +254,34 @@ ansible-playbook --ask-become-pass app_deployment_test.yml
 ```
 
 Note: app_deployment_test.yml uses /bin/false to simulate a failed deployment and trigger the rescue/rollback block.
+
+#12. Certificate Rotation with Let's Encrypt
+
+See the code cert_rotation.yml
+
+Uses DuckDNS DNS challenge for Let's Encrypt certificate issuance and renewal.
+
+Automatically renews if expiring within 30 days and reloads nginx.
+
+Command
+```
+ansible-playbook --ask-become-pass cert_rotation.yml
+```
+
+Note: Requires a public IP and a domain name pointing to it. For testing, use DuckDNS (https://www.duckdns.org) with a free subdomain.
+Setup:
+1. Create a free subdomain at duckdns.org pointing to your public IP (curl ifconfig.me)
+2. Install certbot and certbot-dns-duckdns on the target server
+3. Create /etc/letsencrypt/duckdns.ini with your DuckDNS token:
+   dns_duckdns_token = YOUR_TOKEN_HERE
+4. chmod 600 /etc/letsencrypt/duckdns.ini
+5. Run certbot manually first to issue the certificate:
+   sudo /usr/local/bin/certbot certonly \
+  --authenticator dns-duckdns \
+  --dns-duckdns-credentials /etc/letsencrypt/duckdns.ini \
+  --dns-duckdns-propagation-seconds 60 \
+  -d YOUR_DOMAIN \
+  --agree-tos \
+  --email YOUR_EMAIL \
+  --non-interactive
+6. Then run the playbook for automated renewal
