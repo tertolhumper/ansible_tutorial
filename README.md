@@ -220,3 +220,15 @@ ansible-playbook --ask-become-pass patch_management.yml
 ```
 
 Note: Servers will automatically reboot if a kernel update is detected. Reboot timeout is set to 300 seconds.
+
+#10. Compliance Reporting
+
+See the code compliance_report.yml
+
+Reports are saved to reports/ directory on the control node.
+
+Command
+```
+ansible-playbook --ask-become-pass compliance_report.yml
+```
+
